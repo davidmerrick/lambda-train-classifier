@@ -1,0 +1,34 @@
+{
+  "name": "lambda-get-tweets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidmerrick/lambda-get-tweets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidmerrick/lambda-get-tweets/issues"
+  },
+  "homepage": "https://github.com/davidmerrick/lambda-get-tweets#readme",
+  "dependencies": {
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-install": "^1.1.0",
+    "gulp-zip": "^4.0.0",
+    "mocha": "^3.1.2",
+    "node-aws-lambda": "^0.1.8",
+    "rewire": "^2.5.2",
+    "run-sequence": "^1.2.2"
+  }
+}
