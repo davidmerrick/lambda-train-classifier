@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/davidmerrick/lambda-get-tweets.svg?branch=master)](https://travis-ci.org/davidmerrick/lambda-get-tweets)
+
 Lambda Function to fetch the most recent Tweets from the Twitter API given a Twitter handle.
 
 * Includes gulp config for deployment 
