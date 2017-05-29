@@ -13,6 +13,7 @@ let params = {screen_name: process.env.SCREEN_NAME};
 
 exports.handler = function index(event, context, callback){
     client.get(`statuses/user_timeline`, params, (err, tweets, response) => {
-        callback(tweets);
+        let tweetStrings = JSON.stringify(tweets);
+        callback(tweetStrings);
     });
 }
