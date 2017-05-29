@@ -11,6 +11,8 @@ let client = new Twitter({
 
 let params = {screen_name: process.env.SCREEN_NAME};
 
-client.get(`statuses/user_timeline`, params, (err, tweets, response) => {
-    return tweets;
-});
+exports.handler = function index(event, context, callback){
+    client.get(`statuses/user_timeline`, params, (err, tweets, response) => {
+        callback(tweets);
+    });
+}
