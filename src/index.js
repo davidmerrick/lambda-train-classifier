@@ -9,9 +9,9 @@ let client = new Twitter({
     access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-let params = {screen_name: process.env.SCREEN_NAME};
-
 exports.handler = function index(event, context, callback){
+    let screen_name = event.screen_name || process.env.SCREEN_NAME;
+    let params = {screen_name: screen_name};
     client.get(`statuses/user_timeline`, params, (err, tweets, response) => {
         callback(null, tweets);
     });
