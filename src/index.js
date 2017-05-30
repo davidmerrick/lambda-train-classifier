@@ -1,18 +1,24 @@
 'use strict'
 
-import Twitter from 'twitter'
+import AWS from 'aws-sdk'
+import bayes from 'bayes'
+import axios from 'axios'
 
-let client = new Twitter({
-    consumer_key: process.env.CONSUMER_KEY,
-    consumer_secret: process.env.CONSUMER_SECRET,
-    access_token_key: process.env.ACCESS_TOKEN_KEY,
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET
-});
+const S3_REGION = process.env.S3_REGION || "us-west-2";
+const S3_BUCKET = process.env.S3_BUCKET;
+const FILENAME = process.env.FILENAME;
 
 exports.handler = function index(event, context, callback){
-    let screen_name = event.screen_name || process.env.SCREEN_NAME;
-    let params = {screen_name: screen_name};
-    client.get(`statuses/user_timeline`, params, (err, tweets, response) => {
-        callback(null, tweets);
+    let text = event.text;
+    let classification = event.classification;
+
+    const s3 = new AWS.S3();
+
+    let params = {
+        Bucket: S3_BUCKET
+    };
+    let listObjectsPromise = s3.listObjects(params).promise();
+    listObjectsPromise.then((data) => {
+        callback(null);
     });
 }
