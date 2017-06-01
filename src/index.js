@@ -15,10 +15,14 @@ exports.handler = function index(event, context, callback){
     const s3 = new AWS.S3();
 
     let params = {
-        Bucket: S3_BUCKET
+        Bucket: S3_BUCKET,
+        Key: FILENAME
     };
-    let listObjectsPromise = s3.listObjects(params).promise();
-    listObjectsPromise.then((data) => {
-        callback(null);
-    });
+    s3.getObject(params, (err, data => {
+       if(err){
+           return callback(err);
+       }
+
+       console.log(data);
+    }));
 }
