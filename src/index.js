@@ -18,11 +18,11 @@ exports.handler = function index(event, context, callback){
         Bucket: S3_BUCKET,
         Key: FILENAME
     };
-    s3.getObject(params, (err, data => {
+    s3.getObject(params, (err, data) => {
        if(err){
            return callback(err);
        }
 
        console.log(data);
-    }));
+    });
 }
