@@ -22,6 +22,8 @@ exports.handler = function index(event, context, callback){
         let jsonData = data.Body;
         let classifier = bayes.fromJson(jsonData);
 
+        let {text, classification} = event;
+
         classifier.learn(text, classification);
         let classifierJson = classifier.toJson();
 
