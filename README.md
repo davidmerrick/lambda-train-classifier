@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/davidmerrick/lambda-train-classifier.svg?branch=master)](https://travis-ci.org/davidmerrick/lambda-train-classifier)
-
 Lambda Function to train a Naive Bayes classifier and upload the result to an S3 bucket.
 
 * Includes gulp config for deployment 
